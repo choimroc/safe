@@ -1,0 +1,29 @@
+<resources>
+    <!-- 出掉标题栏 -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--  toolbar（actionbar）颜色  -->
+        <item name="colorPrimary">#4876FF</item>
+        <!--  状态栏颜色  -->
+        <item name="colorPrimaryDark">#3061fe</item>
+        <!--  窗口的背景颜色  -->
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+
+    ?
+
+    1234
+
+    <style name="AnimationActivity" parent="@android:style/Animation.Activity" type="text/css">
+        <item name="android:activityOpenEnterAnimation">@anim/push_left_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/push_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/push_right_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/push_right_out</item>
+    </style>
+
+    <style name="AnimTheme">
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+    </style>
+
+</resources>
