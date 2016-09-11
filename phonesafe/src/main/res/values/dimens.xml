@@ -12,4 +12,5 @@
     <!-- 返回按钮 -->
     <dimen name="btn_back_h">16dp</dimen>
     <dimen name="btn_back_w">16dp</dimen>
+    <dimen name="burglar_item_size">40dp</dimen>
 </resources>

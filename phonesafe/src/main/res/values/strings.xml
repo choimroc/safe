@@ -2,7 +2,7 @@
     <string name="app_name">手机C盾卫士</string>
     <!--设置手机防盗密码-->
     <string name="activity_setpw_title">设置手机防盗密码</string>
-    <string name="activity_setpw_tip">请先设置手机防盗密码</string>
+    <string name="activity_setpw_tip">请先设置手机防盗密码和绑定手机号码</string>
     <string name="activity_setpw_hint1">请设置6-12位字符密码</string>
     <string name="activity_setpw_hint2">请再次输入密码</string>
     <!--进入手机防盗-->
@@ -11,5 +11,6 @@
     <string name="activity_editpw_hint">请输入6-12位字符密码</string>
     <!--手机防盗-->
     <string name="activity_burglar_title">手机防盗</string>
+    <string name="activity_burglar_tip">若手机丢失,\n请通过其他设备进行远程控制</string>
 
 </resources>

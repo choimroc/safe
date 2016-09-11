@@ -28,7 +28,6 @@ public class HomeActivity extends Activity {
     private GridView home_gv;
     private long mExitTime;
     private SharedPreferences preferences;
-    private SharedPreferences.Editor editor;
 
 
     @Override

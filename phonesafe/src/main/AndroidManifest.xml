@@ -8,30 +8,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppBaseTheme">
-        <activity
-            android:name="com.cmp.activity.WelcomeActivity"
-            android:theme="@style/AnimTheme">
+        <activity android:name="com.cmp.activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.cmp.activity.RadarActivity"
-            android:theme="@style/AnimTheme">
+        <activity android:name="com.cmp.activity.RadarActivity">
 
         </activity>
         <!--主页-->
-        <activity
-            android:name="com.cmp.activity.HomeActivity"
-            android:theme="@style/AnimTheme">
+        <activity android:name="com.cmp.activity.HomeActivity">
 
         </activity>
         <!--设置手机防盗密码-->
-        <activity
-            android:name="com.cmp.activity.SetPWActivity"
-            android:theme="@style/AnimTheme">
+        <activity android:name="com.cmp.activity.SetPWActivity">
+
+        </activity>
+        <!--进入手机防盗-->
+        <activity android:name="com.cmp.activity.EditPWActivity">
+
+        </activity>
+        <!--手机防盗-->
+        <activity android:name="com.cmp.activity.BurglarActivity">
 
         </activity>
     </application>

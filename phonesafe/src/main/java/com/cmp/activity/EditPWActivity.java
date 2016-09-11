@@ -36,10 +36,7 @@ public class EditPWActivity extends Activity {
     }
     //返回按钮
     public void btn_back(View v) {
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
         finish();
-
     }
 
     public void check(View v) {
@@ -50,7 +47,7 @@ public class EditPWActivity extends Activity {
         {
             //跳转
             Intent intent = new Intent();
-            intent.setClass(this, BurglarActivity.class);
+            intent.setClass(EditPWActivity.this, BurglarActivity.class);
             startActivity(intent);
             this.finish();
         } else {

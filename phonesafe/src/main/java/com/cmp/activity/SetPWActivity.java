@@ -34,8 +34,6 @@ public class SetPWActivity extends Activity {
 
     //返回按钮
     public void btn_back(View v) {
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
         finish();
     }
 
@@ -48,23 +46,23 @@ public class SetPWActivity extends Activity {
 
     public void check(View v) {
         mPassWord = mEdit1.getText().toString();//获取设置的密码
-        if (mEdit1.equals(mEdit2.getText().toString())) // 判断密码是否一致
+        if (mPassWord.equals(mEdit2.getText().toString())) // 判断密码是否一致
         {
-
             //记录已经设置密码
             preferences = getSharedPreferences("mydata", Context.MODE_PRIVATE);
             editor = preferences.edit();
             //记录加密的密码
-            editor.putString("buglar", MD5Util.md5(mPassWord));
+            editor.putString("burglar", MD5Util.md5(mPassWord));
             editor.commit();
             //跳转
             if (editor.commit()) {
                 Intent intent = new Intent();
-                intent.setClass(this, BurglarActivity.class);
+                intent.setClass(SetPWActivity.this, BurglarActivity.class);
                 startActivity(intent);
+                finish();
             }
         } else {
-            Toast.makeText(this, "两次输入不一致，请重新设置", Toast.LENGTH_SHORT).show();
+            Toast.makeText(SetPWActivity.this, "两次输入不一致，请重新设置", Toast.LENGTH_SHORT).show();
         }
     }
 
