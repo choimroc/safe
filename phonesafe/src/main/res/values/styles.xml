@@ -17,4 +17,7 @@
         <item name="android:activityCloseExitAnimation">@anim/push_right_out</item>
     </style>
 
+    <style name="Theme.Start" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 </resources>

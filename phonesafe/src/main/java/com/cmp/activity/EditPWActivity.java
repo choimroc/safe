@@ -34,6 +34,7 @@ public class EditPWActivity extends Activity {
         mEdit.addTextChangedListener(mTextWatcher);
 
     }
+
     //返回按钮
     public void btn_back(View v) {
         finish();
@@ -51,7 +52,7 @@ public class EditPWActivity extends Activity {
             startActivity(intent);
             this.finish();
         } else {
-            Toast.makeText(this, "两次输入不一致，请重新设置", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "密码错误，请重新输入", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -75,7 +76,7 @@ public class EditPWActivity extends Activity {
         public void afterTextChanged(Editable s) {
             editStart = mEdit.getSelectionStart();
             editEnd = mEdit.getSelectionEnd();
-            if (temp.length() > 0) {
+            if (temp.length() > 5) {
                 mBtn.setBackgroundResource(R.drawable.click_true);
                 mBtn.setEnabled(true);
             } else {

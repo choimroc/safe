@@ -38,10 +38,18 @@ public class BurglarActivity extends Activity {
         Intent intent = new Intent(BurglarActivity.this, cls);
         startActivity(intent);
     }
+
     //返回按钮
     public void btn_back(View v) {
         finish();
     }
+
+    //进入设置
+    public void btn_setting(View v) {
+        Intent intent = new Intent(BurglarActivity.this, BurglarSettingActivity.class);
+        startActivity(intent);
+    }
+
     private AdapterView.OnItemClickListener BurglarOnClick = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

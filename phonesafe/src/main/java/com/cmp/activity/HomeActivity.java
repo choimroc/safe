@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -34,9 +33,8 @@ public class HomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        roteView = (ImageView) findViewById(R.id.rote_icon);
-        startRotate();
         initView();
+        startRotate();
     }
 
     //旋转动画
@@ -48,8 +46,10 @@ public class HomeActivity extends Activity {
         rotateAnim.start();
     }
 
-    //初始化GridView
+    //初始化页面
     private void initView() {
+        roteView = (ImageView) findViewById(R.id.rote_icon);
+        //初始化GridView
         home_gv = (GridView) findViewById(R.id.home_gv);
         home_gv.setAdapter(new HomeAdapter(HomeActivity.this));
         home_gv.setOnItemClickListener(homeOnClick);
@@ -83,7 +83,6 @@ public class HomeActivity extends Activity {
                 case 0:
                     preferences = getSharedPreferences("mydata", MODE_WORLD_READABLE);
                     String burglar = preferences.getString("burglar", "");
-                    Log.i("tag", burglar + "");
                     if (burglar.length() == 0) {
                         startActivity(SetPWActivity.class);
                     } else {

@@ -25,6 +25,7 @@ public class SetPWActivity extends Activity {
     private Button mBtn;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
+    private String reg;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,7 @@ public class SetPWActivity extends Activity {
     }
 
     public void check(View v) {
+        reg = "[/W]{6,12}";
         mPassWord = mEdit1.getText().toString();//获取设置的密码
         if (mPassWord.equals(mEdit2.getText().toString())) // 判断密码是否一致
         {

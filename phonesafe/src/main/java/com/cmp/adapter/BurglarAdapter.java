@@ -18,7 +18,7 @@ public class BurglarAdapter extends BaseAdapter {
             R.mipmap.burglar_contact, R.mipmap.burglar_delete, R.mipmap.burglar_search
     };
     String[] names = {
-            "手机定位", "手机锁定", "响铃警报", "紧急联系人", "远程删除数据", "帮助他人找手机"
+            "手机定位", "手机锁定", "响铃警报", "紧急联系人", "远程删除数据", "帮他人找手机"
     };
     private Context context;
 
