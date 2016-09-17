@@ -3,12 +3,12 @@
     <!--设置手机防盗密码-->
     <string name="activity_setpw_title">设置手机防盗密码</string>
     <string name="activity_setpw_tip">请先设置手机防盗密码</string>
-    <string name="activity_setpw_hint1">请设置6-12位字符密码</string>
+    <string name="activity_setpw_hint1">请设置6–12位字符密码</string>
     <string name="activity_setpw_hint2">请再次输入密码</string>
     <!--进入手机防盗-->
     <string name="activity_editpw_title">进入手机防盗</string>
     <string name="activity_editpw_tip">请先输入手机防盗密码</string>
-    <string name="activity_editpw_hint">请输入6-12位字符密码</string>
+    <string name="activity_editpw_hint">请输入6–12位字符密码</string>
     <!--手机防盗-->
     <string name="activity_burglar_title">手机防盗</string>
     <string name="activity_burglar_tip">若手机丢失,\n请通过其他设备进行远程控制</string>
@@ -18,5 +18,10 @@
     <string name="activity_burglar_defend">防卸载保护</string>
     <string name="activity_burglar_revise">修改密码</string>
     <string name="activity_burglar_off">关闭手机防盗</string>
+    <!--软件管理-->
+    <string name="activity_app_title">软件管理</string>
+    <string name="activity_app_phone_memory">剩余手机内存:</string>
+    <string name="activity_app_card_memory">剩余SD卡内存:</string>
+
 
 </resources>

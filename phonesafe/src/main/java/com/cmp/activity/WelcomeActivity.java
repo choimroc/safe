@@ -1,13 +1,13 @@
 package com.cmp.activity;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.cmp.myapplication.R;
 
-public class WelcomeActivity extends AppCompatActivity {
+public class WelcomeActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class WelcomeActivity extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(WelcomeActivity.this, HomeActivity.class);
                 startActivity(intent);
-                WelcomeActivity.this.finish();
+                finish();
             }
         }, 2000);
     }

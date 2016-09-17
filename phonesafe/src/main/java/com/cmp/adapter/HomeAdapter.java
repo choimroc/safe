@@ -1,56 +1,64 @@
 package com.cmp.adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cmp.data.HomeItem;
 import com.cmp.myapplication.R;
 
-import org.w3c.dom.Text;
+import java.util.List;
 
 /**
  * 作者：cmp on 2016/9/9 18:00
  */
 public class HomeAdapter extends BaseAdapter {
-    int[] imageId = {R.mipmap.home_burglar, R.mipmap.home_address, R.mipmap.home_application,
-            R.mipmap.home_kill, R.mipmap.home_clear, R.mipmap.home_process,
-            R.mipmap.home_flow, R.mipmap.home_tool, R.mipmap.home_setting
-    };
-    String[] names = {
-            "手机防盗", "通讯卫士", "软件管家", "手机杀毒", "清理缓存",
-            "进程管理", "流量统计", "高级工具", "设置中心"
-    };
-    private Context context;
+    private LayoutInflater mLayoutInflater;
+    private List<HomeItem> mDataList;
 
-    public HomeAdapter(Context context) {
-        this.context = context;
+    public HomeAdapter(Context context, List<HomeItem> list) {
+        mLayoutInflater = LayoutInflater.from(context);
+        mDataList = list;
     }
 
     @Override
     public int getCount() {
-        return imageId.length;
+        return mDataList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return mDataList.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-        View view = View.inflate(context,R.layout.home_item,null);
-        ImageView home_icon=(ImageView)view.findViewById(R.id.home_item_icon);
-        TextView home_name=(TextView)view.findViewById(R.id.home_item_name);
-        home_icon.setImageResource(imageId[position]);
-        home_name.setText(names[position]);
-        return view;
+        ViewHolder holder = null;
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = mLayoutInflater.inflate(R.layout.activity_home_item, null);
+            holder.home_icon = (ImageView) convertView.findViewById(R.id.home_item_icon);
+            holder.home_name = (TextView) convertView.findViewById(R.id.home_item_name);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+        HomeItem home = mDataList.get(position);
+        holder.home_icon.setImageResource(home.itemImg);
+        holder.home_name.setText(home.itemName);
+        return convertView;
+    }
+    class ViewHolder {
+        public ImageView home_icon;
+        public TextView home_name;
     }
 }

@@ -42,7 +42,7 @@ public class EditPWActivity extends Activity {
 
     public void check(View v) {
         //提取设置好的密码
-        preferences = getSharedPreferences("mydata", MODE_WORLD_READABLE);
+        preferences = getSharedPreferences("MyData", MODE_WORLD_READABLE);
         String burglar = preferences.getString("burglar", "");
         if (MD5Util.md5(mEdit.getText().toString()).equals(burglar))// 判断密码是否一致
         {

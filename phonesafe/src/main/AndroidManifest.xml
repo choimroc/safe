@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cmp.myapplication">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -19,24 +20,28 @@
         <activity android:name="com.cmp.activity.RadarActivity">
 
         </activity>
-        <!--主页-->
+        <!-- 主页 -->
         <activity android:name="com.cmp.activity.HomeActivity">
 
         </activity>
-        <!--设置手机防盗密码-->
+        <!-- 设置手机防盗密码 -->
         <activity android:name="com.cmp.activity.SetPWActivity">
 
         </activity>
-        <!--进入手机防盗-->
+        <!-- 进入手机防盗 -->
         <activity android:name="com.cmp.activity.EditPWActivity">
 
         </activity>
-        <!--手机防盗-->
+        <!-- 手机防盗 -->
         <activity android:name="com.cmp.activity.BurglarActivity">
 
         </activity>
-        <!--手机防盗设置-->
+        <!-- 手机防盗设置 -->
         <activity android:name="com.cmp.activity.BurglarSettingActivity">
+
+        </activity>
+        <!--软件管理-->
+        <activity android:name="com.cmp.activity.AppManagerActivity">
 
         </activity>
     </application>

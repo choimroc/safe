@@ -2,7 +2,7 @@
     <!-- 出掉标题栏 -->
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!--  toolbar（actionbar）颜色  -->
-        <item name="colorPrimary">#4876FF</item>
+        <item name="colorPrimary">#3061fe</item>
         <!--  状态栏颜色  -->
         <item name="colorPrimaryDark">#3061fe</item>
         <!--  窗口的背景颜色  -->

@@ -1,53 +1,64 @@
 package com.cmp.adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cmp.data.BurglarItem;
 import com.cmp.myapplication.R;
+
+import java.util.List;
 
 /**
  * 作者：cmp on 2016/9/9 18:00
  */
 public class BurglarAdapter extends BaseAdapter {
-    int[] imageId = {
-            R.mipmap.burglar_gps, R.mipmap.burglar_lock, R.mipmap.burglar_music,
-            R.mipmap.burglar_contact, R.mipmap.burglar_delete, R.mipmap.burglar_search
-    };
-    String[] names = {
-            "手机定位", "手机锁定", "响铃警报", "紧急联系人", "远程删除数据", "帮他人找手机"
-    };
-    private Context context;
+    private LayoutInflater mLayoutInflater;
+    private List<BurglarItem> mDataList;
 
-    public BurglarAdapter(Context context) {
-        this.context = context;
+    public BurglarAdapter(Context context, List<BurglarItem> list) {
+        mLayoutInflater = LayoutInflater.from(context);
+        mDataList = list;
     }
 
     @Override
     public int getCount() {
-        return imageId.length;
+        return mDataList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return mDataList.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
-        View view = View.inflate(context, R.layout.burglar_item, null);
-        ImageView home_icon = (ImageView) view.findViewById(R.id.burglar_item_icon);
-        TextView home_name = (TextView) view.findViewById(R.id.burglar_item_name);
-        home_icon.setImageResource(imageId[position]);
-        home_name.setText(names[position]);
-        return view;
+        ViewHolder holder = null;
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = mLayoutInflater.inflate(R.layout.activity_burglar_item, null);
+            holder.burglar_icon = (ImageView) convertView.findViewById(R.id.burglar_item_icon);
+            holder.burglar_name = (TextView) convertView.findViewById(R.id.burglar_item_name);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+        BurglarItem home = mDataList.get(position);
+        holder.burglar_icon.setImageResource(home.itemImg);
+        holder.burglar_name.setText(home.itemName);
+        return convertView;
+    }
+    class ViewHolder {
+        public ImageView burglar_icon;
+        public TextView burglar_name;
     }
 }
