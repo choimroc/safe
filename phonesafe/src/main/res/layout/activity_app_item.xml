@@ -2,48 +2,53 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:padding="20dp">
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/app_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="15dp"
-        android:background="@color/sweep_circle_color" />
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:id="@+id/app_name"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@+id/app_icon"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="#000" />
+
+    <TextView
+        android:id="@+id/app_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/app_name"
+        android:layout_marginBottom="5dp"
         android:layout_toRightOf="@+id/app_icon"
-        android:text="2222"
-        android:textColor="#000"
-        android:textSize="@dimen/title_size" />
+        android:textColor="@color/d_black"
+        android:singleLine="true"
+        android:ellipsize="end"/>
 
     <TextView
         android:id="@+id/app_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/app_name"
+        android:layout_below="@+id/app_version"
         android:layout_toRightOf="@+id/app_icon"
-        android:text="1111" />
+        android:textColor="@color/d_black" />
 
     <TextView
-        android:id="@+id/soft_date"
+        android:id="@+id/app_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/app_name"
+        android:layout_below="@+id/app_version"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/app_size"
-        android:text="000000" />
-
-    <Button
-        android:id="@+id/app_open"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:text="打开" />
+        android:textColor="@color/d_black" />
 
 </RelativeLayout>

@@ -22,7 +22,7 @@
         <item>高级工具</item>
         <item>设置中心</item>
     </string-array>
-    <integer-array name="home_item">
+    <string-array name="home_item">
         <item>@mipmap/home_burglar</item>
         <item>@mipmap/home_address</item>
         <item>@mipmap/home_application</item>
@@ -32,7 +32,7 @@
         <item>@mipmap/home_flow</item>
         <item>@mipmap/home_tool</item>
         <item>@mipmap/home_setting</item>
-    </integer-array>
+    </string-array>
     <!--手机防盗-->
     <string-array name="burglar_name">
         <item>手机定位</item>
@@ -51,10 +51,9 @@
         <item>@mipmap/burglar_search</item>
     </array>
     <!--软件管理-->
-    <string-array name="soft_tab">
+    <string-array name="app_tab">
         <item>个人软件</item>
         <item>系统软件</item>
         <item>安装包</item>
-        <item>加锁程序</item>
     </string-array>
 </resources>

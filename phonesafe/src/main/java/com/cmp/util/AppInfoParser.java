@@ -9,7 +9,9 @@ import android.graphics.drawable.Drawable;
 import com.cmp.data.AppInfo;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,15 +20,16 @@ import java.util.List;
 public class AppInfoParser {
     /**
      * 获取手机里面的所有的应用程序
+     *
      * @param context 上下文
      * @return
      */
-    public static List<AppInfo> getappInfos(Context context){
-        //得到一个java保证的 包管理器。
+    public static List<AppInfo> getappInfos(Context context) {
+        //得到一个java保证的包管理器。
         PackageManager pm = context.getPackageManager();
         List<PackageInfo> packInfos = pm.getInstalledPackages(0);
         List<AppInfo> appInfos = new ArrayList<>();
-        for(PackageInfo packInfo:packInfos){
+        for (PackageInfo packInfo : packInfos) {
             AppInfo appInfo = new AppInfo();
             String packName = packInfo.packageName;
             appInfo.setPackageName(packName);
@@ -38,21 +41,28 @@ public class AppInfoParser {
             String apkPath = packInfo.applicationInfo.sourceDir;
             appInfo.setApkPath(apkPath);
             File file = new File(apkPath);
+            Date installDate = new Date(file.lastModified());//时间
+            SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+            appInfo.setAppDate(format.format(installDate));
+            //应用大小
             long appSize = file.length();
             appInfo.setAppSize(appSize);
+            //应用版本号
+            String appVersion = packInfo.versionName;
+            appInfo.setAppVersion(appVersion);
             //应用程序安装的位置。
             int flags = packInfo.applicationInfo.flags; //二进制映射  大bit-map
-            if((ApplicationInfo.FLAG_EXTERNAL_STORAGE&flags)!=0){
+            if ((ApplicationInfo.FLAG_EXTERNAL_STORAGE & flags) != 0) {
                 //外部存储
                 appInfo.setInRom(false);
-            }else{
+            } else {
                 //手机内存
                 appInfo.setInRom(true);
             }
-            if((ApplicationInfo.FLAG_SYSTEM&flags)!=0){
+            if ((ApplicationInfo.FLAG_SYSTEM & flags) != 0) {
                 //系统应用
                 appInfo.setUserApp(false);
-            }else{
+            } else {
                 //用户应用
                 appInfo.setUserApp(true);
             }

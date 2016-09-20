@@ -59,8 +59,8 @@ public class HomeActivity extends Activity {
                 dataList, R.layout.activity_home_item) {
             @Override
             public void convert(ViewHolder viewHolder, HomeItem item) {
-                viewHolder.setImageResource(R.id.home_item_icon, item.itemImg);
-                viewHolder.setText(R.id.home_item_name, item.itemName);
+                viewHolder.setImageResource(R.id.home_item_icon, item.getItemImg());
+                viewHolder.setText(R.id.home_item_name, item.getItemName());
             }
         });
         home_gv.setOnItemClickListener(homeOnClick);
@@ -71,7 +71,7 @@ public class HomeActivity extends Activity {
         dataList = new ArrayList<>();
         TypedArray getImageId = super.getResources().obtainTypedArray(R.array.home_item);
         int[] imageId = new int[getImageId.length()];
-        getImageId.recycle();
+
         for (int j = 0; j < getImageId.length(); j++) {
             imageId[j] = getImageId.getResourceId(j, 0);
         }
@@ -79,6 +79,7 @@ public class HomeActivity extends Activity {
         for (int i = 0; i < getImageId.length(); i++) {
             dataList.add(new HomeItem(imageId[i], names[i]));
         }
+        getImageId.recycle();
     }
 
     //开启新的Activity不关闭自己

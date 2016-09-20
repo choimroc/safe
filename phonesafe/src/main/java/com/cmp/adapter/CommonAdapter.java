@@ -19,28 +19,28 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
     /**
      * 实体类集合
      */
-    private List<T> mDatas;
+    private List<T> mData;
     private LayoutInflater mInflater;
     /**
      * 控件id
      */
     private int mItemLayoutId;
 
-    public CommonAdapter(Context context, List<T> mDatas, int itemLayoutId) {
+    public CommonAdapter(Context context, List<T> mData, int itemLayoutId) {
         this.mContext = context;
         this.mInflater = LayoutInflater.from(mContext);
-        this.mDatas = mDatas;
+        this.mData = mData;
         this.mItemLayoutId = itemLayoutId;
     }
 
     @Override
     public int getCount() {
-        return mDatas.size();
+        return mData.size();
     }
 
     @Override
     public T getItem(int position) {
-        return mDatas.get(position);
+        return mData.get(position);
     }
 
     @Override

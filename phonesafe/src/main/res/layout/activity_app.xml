@@ -43,7 +43,9 @@
         app:tabIndicatorColor="@color/tab_select"
         app:tabIndicatorHeight="3dp"
         app:tabSelectedTextColor="#fff"
-        app:tabTextColor="@color/sweep_end_color" />
+        app:tabTextColor="@color/sweep_end_color"
+        app:tabBackground="@color/background_color"
+        />
 
     <RelativeLayout
         android:layout_width="match_parent"

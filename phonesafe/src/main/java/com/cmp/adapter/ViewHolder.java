@@ -2,6 +2,7 @@ package com.cmp.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -100,7 +101,6 @@ public class ViewHolder {
 
     /**
      * 为ImageView设置图片
-     *
      * @param viewId
      * @return
      */
@@ -110,6 +110,18 @@ public class ViewHolder {
         view.setImageBitmap(bm);
         return this;
     }
+    /**
+     * 为ImageView设置图片
+     * @param viewId
+     * @return
+     */
+    public ViewHolder setImageDrawable(int viewId, Drawable drawable)
+    {
+        ImageView view = getView(viewId);
+        view.setImageDrawable(drawable);
+        return this;
+    }
+
 
     public int getPosition()
     {

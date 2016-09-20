@@ -37,8 +37,8 @@ public class BurglarActivity extends Activity {
                 dataList, R.layout.activity_burglar_item) {
             @Override
             public void convert(ViewHolder viewHolder, BurglarItem item) {
-                viewHolder.setImageResource(R.id.burglar_item_icon, item.itemImg);
-                viewHolder.setText(R.id.burglar_item_name, item.itemName);
+                viewHolder.setImageResource(R.id.burglar_item_icon, item.getItemImg());
+                viewHolder.setText(R.id.burglar_item_name, item.getItemName());
             }
         });
         burglar_gv.setOnItemClickListener(BurglarOnClick);
@@ -49,7 +49,6 @@ public class BurglarActivity extends Activity {
         dataList = new ArrayList<>();
         TypedArray getImageId = super.getResources().obtainTypedArray(R.array.burglar_item);
         int[] imageId = new int[getImageId.length()];
-        getImageId.recycle();
         for (int j = 0; j < getImageId.length(); j++) {
             imageId[j] = getImageId.getResourceId(j, 0);
         }
@@ -57,6 +56,7 @@ public class BurglarActivity extends Activity {
         for (int i = 0; i < getImageId.length(); i++) {
             dataList.add(new BurglarItem(imageId[i], names[i]));
         }
+        getImageId.recycle();
     }
 
     //开启新的Activity不关闭自己

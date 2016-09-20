@@ -22,6 +22,7 @@
     <string name="activity_app_title">软件管理</string>
     <string name="activity_app_phone_memory">剩余手机内存:</string>
     <string name="activity_app_card_memory">剩余SD卡内存:</string>
+    <string name="activity_app_version">版本号</string>
 
 
 </resources>

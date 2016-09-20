@@ -6,15 +6,10 @@ import android.graphics.drawable.Drawable;
  * 作者：cmp on 2016/9/16 17:30
  */
 public class AppInfo {
+    /**
+     * 应用程序的路径
+     */
     private String apkPath;
-
-    public String getApkPath() {
-        return apkPath;
-    }
-
-    public void setApkPath(String apkPath) {
-        this.apkPath = apkPath;
-    }
 
     /**
      * 应用程序的图标
@@ -46,12 +41,30 @@ public class AppInfo {
      */
     private String packageName;
 
+    /**
+     * 应用程序的最新安装时间
+     */
+    private String appDate;
+
+    /**
+     * 应用程序的版本号
+     */
+    private String appVersion;
+
     public Drawable getIcon() {
         return icon;
     }
 
     public void setIcon(Drawable icon) {
         this.icon = icon;
+    }
+
+    public String getApkPath() {
+        return apkPath;
+    }
+
+    public void setApkPath(String apkPath) {
+        this.apkPath = apkPath;
     }
 
     public String getName() {
@@ -92,6 +105,22 @@ public class AppInfo {
 
     public void setPackageName(String packageName) {
         this.packageName = packageName;
+    }
+
+    public String getAppDate() {
+        return appDate;
+    }
+
+    public void setAppDate(String appDate) {
+        this.appDate = appDate;
+    }
+
+    public String getAppVersion() {
+        return appVersion;
+    }
+
+    public void setAppVersion(String appVersion) {
+        this.appVersion = appVersion;
     }
 
     @Override
