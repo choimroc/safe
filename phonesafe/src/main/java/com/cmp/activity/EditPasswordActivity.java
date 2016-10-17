@@ -9,18 +9,22 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cmp.myapplication.R;
+import com.cmp.phonesafe.R;
 import com.cmp.util.MD5Util;
 
 /**
  * 作者：cmp on 2016/9/10 01:13
+ * <p>
+ * 手机防盗输入密码
  */
-public class EditPWActivity extends Activity {
+public class EditPasswordActivity extends Activity {
     private EditText mEdit;
     private Button mBtn;
     private SharedPreferences preferences;
+    private TextView mToolbarTitleTv;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,23 +36,25 @@ public class EditPWActivity extends Activity {
         mEdit = (EditText) findViewById(R.id.edit_pw);
         mBtn = (Button) findViewById(R.id.btn_true);
         mEdit.addTextChangedListener(mTextWatcher);
-
+        //设置标题
+        mToolbarTitleTv = (TextView) findViewById(R.id.toolbar_title_tv);
+        mToolbarTitleTv.setText(R.string.activity_editpw_title);
     }
 
     //返回按钮
-    public void btn_back(View v) {
+    public void btnBack(View v) {
         finish();
     }
 
     public void check(View v) {
         //提取设置好的密码
-        preferences = getSharedPreferences("MyData", MODE_WORLD_READABLE);
+        preferences = getSharedPreferences("MyData", 2);
         String burglar = preferences.getString("burglar", "");
         if (MD5Util.md5(mEdit.getText().toString()).equals(burglar))// 判断密码是否一致
         {
             //跳转
             Intent intent = new Intent();
-            intent.setClass(EditPWActivity.this, BurglarActivity.class);
+            intent.setClass(EditPasswordActivity.this, BurglarActivity.class);
             startActivity(intent);
             this.finish();
         } else {

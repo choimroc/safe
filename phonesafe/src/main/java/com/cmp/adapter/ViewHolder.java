@@ -22,7 +22,7 @@ public class ViewHolder {
                        int position)
     {
         this.mPosition = position;
-        this.mViews = new SparseArray<View>();
+        this.mViews = new SparseArray<>();
         mConvertView = LayoutInflater.from(context).inflate(layoutId, parent,
                 false);
         // setTag

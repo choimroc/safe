@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <!--标题栏-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_toolbar_h"
+        android:background="@color/background_color">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="@dimen/public_btn_back_w"
+                android:layout_height="@dimen/public_btn_back_h"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/public_back_left"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:clickable="true"
+                android:onClick="btnBack"
+                android:scaleType="fitXY"
+                android:src="@mipmap/public_btn_back" />
+            <!-- 主标题 -->
+            <TextView
+                android:id="@+id/toolbar_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/back"
+                android:textColor="#fff"
+                android:textSize="@dimen/public_title_size" />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+</LinearLayout>

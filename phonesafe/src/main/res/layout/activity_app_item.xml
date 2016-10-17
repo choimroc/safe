@@ -19,9 +19,9 @@
         android:layout_marginBottom="5dp"
         android:layout_toRightOf="@+id/app_icon"
         android:ellipsize="end"
-        android:singleLine="true"
         android:text=""
-        android:textColor="#000" />
+        android:textColor="#000"
+        android:maxLines="1" />
 
     <TextView
         android:id="@+id/app_version"
@@ -31,8 +31,8 @@
         android:layout_marginBottom="5dp"
         android:layout_toRightOf="@+id/app_icon"
         android:textColor="@color/d_black"
-        android:singleLine="true"
-        android:ellipsize="end"/>
+        android:ellipsize="end"
+        android:maxLines="1" />
 
     <TextView
         android:id="@+id/app_size"

@@ -10,7 +10,6 @@
     <string name="activity_editpw_tip">请先输入手机防盗密码</string>
     <string name="activity_editpw_hint">请输入6–12位字符密码</string>
     <!--手机防盗-->
-    <string name="activity_burglar_title">手机防盗</string>
     <string name="activity_burglar_tip">若手机丢失,\n请通过其他设备进行远程控制</string>
     <string name="activity_burglar_setting">设置</string>
     <string name="activity_burglar_lock">换卡自动锁机</string>
@@ -19,10 +18,20 @@
     <string name="activity_burglar_revise">修改密码</string>
     <string name="activity_burglar_off">关闭手机防盗</string>
     <!--软件管理-->
-    <string name="activity_app_title">软件管理</string>
     <string name="activity_app_phone_memory">剩余手机内存:</string>
     <string name="activity_app_card_memory">剩余SD卡内存:</string>
     <string name="activity_app_version">版本号</string>
+    <!--手机杀毒-->
+    <string name="activity_ant_start">开始扫描</string>
+    <string name="activity_ant_stop">停止扫描</string>
+    <string name="activity_ant_safe">\u2714</string>
+    <string name="activity_ant_danger">\u2716</string>
+    <string name="activity_ant_scan_init">初始化杀毒引擎中…</string>
+    <string name="activity_ant_scanning">正在扫描：</string>
+    <string name="activity_ant_scan_finish">扫描完成！</string>
+    <string name="activity_ant_scan_nofinish">查杀未完成！</string>
+    <string name="activity_ant_never">您还未扫描过哟!</string>
+    <string name="activity_ant_last">上次查杀时间：</string>
 
 
 </resources>

@@ -10,18 +10,22 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cmp.myapplication.R;
+import com.cmp.phonesafe.R;
 import com.cmp.util.MD5Util;
 
 /**
  * 作者：cmp on 2016/9/9 20:49
+ * <p>
+ * 手机防盗设置密码
  */
-public class SetPWActivity extends Activity {
+public class SetPasswordActivity extends Activity {
     private EditText mEdit1;
     private EditText mEdit2;
     private Button mBtn;
+    private TextView mToolbarTitleTv;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +34,8 @@ public class SetPWActivity extends Activity {
     }
 
     //返回按钮
-    public void btn_back(View v) {
+    //返回按钮
+    public void btnBack(View v) {
         finish();
     }
 
@@ -39,28 +44,30 @@ public class SetPWActivity extends Activity {
         mEdit2 = (EditText) findViewById(R.id.editText2);
         mBtn = (Button) findViewById(R.id.btn_true);
         mEdit2.addTextChangedListener(mTextWatcher);
+        mToolbarTitleTv = (TextView) findViewById(R.id.toolbar_title_tv);
+        mToolbarTitleTv.setText(R.string.activity_setpw_title);
     }
 
     public void check(View v) {
         String mPassWord = mEdit1.getText().toString();
-            if (mPassWord.equals(mEdit2.getText().toString())) // 判断密码是否一致
-            {
-                //记录已经设置密码
-                SharedPreferences preferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                //记录加密的密码
-                editor.putString("burglar", MD5Util.md5(mPassWord));
-                editor.commit();
-                //跳转
-                if (editor.commit()) {
-                    Intent intent = new Intent();
-                    intent.setClass(SetPWActivity.this, BurglarActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-            } else {
-                Toast.makeText(SetPWActivity.this, "两次输入不一致，请重新设置", Toast.LENGTH_SHORT).show();
+        if (mPassWord.equals(mEdit2.getText().toString())) // 判断密码是否一致
+        {
+            //记录已经设置密码
+            SharedPreferences preferences = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            //记录加密的密码
+            editor.putString("burglar", MD5Util.md5(mPassWord));
+            editor.commit();
+            //跳转
+            if (editor.commit()) {
+                Intent intent = new Intent();
+                intent.setClass(SetPasswordActivity.this, BurglarActivity.class);
+                startActivity(intent);
+                finish();
             }
+        } else {
+            Toast.makeText(SetPasswordActivity.this, "两次输入不一致，请重新设置", Toast.LENGTH_SHORT).show();
+        }
     }
 
     TextWatcher mTextWatcher = new TextWatcher() {

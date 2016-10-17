@@ -5,8 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.cmp.myapplication.R;
+import com.cmp.phonesafe.R;
 
+/**
+ * 作者：cmp on 2016/9/12 11:11
+ *
+ * 欢迎页
+ */
 public class WelcomeActivity extends Activity {
 
     @Override

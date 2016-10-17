@@ -3,16 +3,16 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!--主页布局-->
-    <dimen name="home_item_size">30dp</dimen>
-    <dimen name="home_item_text">16sp</dimen>
+    <dimen name="activity_home_item_size">30dp</dimen>
+    <dimen name="activity_home_item_text">16sp</dimen>
     <!--标题栏-->
-    <dimen name="toolbar_h">60dp</dimen>
-    <dimen name="title_size">20sp</dimen>
-    <dimen name="m_left">30dp</dimen>
+    <dimen name="public_toolbar_h">60dp</dimen>
+    <dimen name="public_title_size">20sp</dimen>
+    <dimen name="public_back_left">-10dp</dimen>
     <!-- 返回按钮 -->
-    <dimen name="btn_back_h">16dp</dimen>
-    <dimen name="btn_back_w">16dp</dimen>
-    <dimen name="burglar_item_size">40dp</dimen>
-
-    <dimen name="burglar_item_text">16sp</dimen>
+    <dimen name="public_btn_back_h">40dp</dimen>
+    <dimen name="public_btn_back_w">40dp</dimen>
+    <dimen name="activity_burglar_item_size">40dp</dimen>
+    <!--手机防盗-->
+    <dimen name="activity_burglar_item_text">16sp</dimen>
 </resources>

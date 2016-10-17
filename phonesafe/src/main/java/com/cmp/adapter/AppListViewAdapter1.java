@@ -3,7 +3,7 @@ package com.cmp.adapter;
 import android.content.Context;
 
 import com.cmp.data.AppInfo;
-import com.cmp.myapplication.R;
+import com.cmp.phonesafe.R;
 import com.cmp.util.FileSizeUtil;
 
 import java.util.List;
@@ -11,12 +11,12 @@ import java.util.List;
 /**
  * 作者：cmp on 2016/9/20 13:59
  */
-public class ListViewAdapter1 extends CommonAdapter<AppInfo> {
+public class AppListViewAdapter1 extends CommonAdapter<AppInfo> {
     private Context context;
     private List<AppInfo> mData;
     private int itemLayoutId;
 
-    public ListViewAdapter1(Context context, List<AppInfo> mData, int itemLayoutId) {
+    public AppListViewAdapter1(Context context, List<AppInfo> mData, int itemLayoutId) {
         super(context, mData, itemLayoutId);
         this.context = context;
         this.mData = mData;

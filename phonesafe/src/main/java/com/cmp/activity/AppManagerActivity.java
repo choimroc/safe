@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -13,17 +14,22 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.cmp.adapter.AppListViewAdapter1;
+import com.cmp.adapter.AppListViewAdapter2;
 import com.cmp.adapter.AppPageAdapter;
-import com.cmp.adapter.ListViewAdapter1;
-import com.cmp.adapter.ListViewAdapter2;
 import com.cmp.data.AppInfo;
-import com.cmp.myapplication.R;
+import com.cmp.phonesafe.R;
 import com.cmp.util.AppInfoParser;
 import com.cmp.util.FileSizeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 作者：cmp on 2016/10/12 11:11
+ * <p>
+ * 软件管家
+ */
 public class AppManagerActivity extends Activity {
     private TabLayout mTabLayout;//选项卡标题布局
     private ViewPager mViewPager;//选项卡内容布局
@@ -33,21 +39,23 @@ public class AppManagerActivity extends Activity {
     private List<AppInfo> userAppInfos;//个人软件
     private List<AppInfo> systemAppInfos;//系统软件
     private ListView mListView1;//个人软件
-    private ListViewAdapter1 mLVAdapter1;
+    private AppListViewAdapter1 mLVAdapter1;
     private ListView mListView2;//系统软件
-    private ListViewAdapter2 mLVAdapter2;
+    private AppListViewAdapter2 mLVAdapter2;
     private ListView mListView3;//安装包
     private UninstallReceiver receiver;
+    private TextView mToolbarTitleTv;//标题
+    //异步线程处理
     private Handler mHandler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
+        public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 10:
                     if (mLVAdapter1 == null) {
-                        mLVAdapter1 = new ListViewAdapter1
+                        mLVAdapter1 = new AppListViewAdapter1
                                 (getApplicationContext(), userAppInfos, R.layout.activity_app_item);
                     }
                     if (mLVAdapter2 == null) {
-                        mLVAdapter2 = new ListViewAdapter2
+                        mLVAdapter2 = new AppListViewAdapter2
                                 (getApplicationContext(), systemAppInfos, R.layout.activity_app_item);
                     }
                     mListView1.setAdapter(mLVAdapter1);
@@ -61,6 +69,7 @@ public class AppManagerActivity extends Activity {
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +80,7 @@ public class AppManagerActivity extends Activity {
     }
 
     //返回按钮
-    public void btn_back(View v) {
+    public void btnBack(View v) {
         finish();
     }
 
@@ -89,13 +98,13 @@ public class AppManagerActivity extends Activity {
         mArrayList.add(view2);
         mArrayList.add(view3);
         //手机内存
-        TextView mPhoneMemory = (TextView) findViewById(R.id.phone_memory);
+        TextView mPhoneMemory = (TextView) findViewById(R.id.app_phone_memory);
         mPhoneMemory.setText(
                 mPhoneMemory.getText()
                         + FileSizeUtil.formatFileSize
                         (FileSizeUtil.getAvailableInternalMemorySize()));
         //SD卡内存
-        TextView mSDMemory = (TextView) findViewById(R.id.card_memory);
+        TextView mSDMemory = (TextView) findViewById(R.id.app_card_memory);
         mSDMemory.setText(
                 mSDMemory.getText() +
                         FileSizeUtil.formatFileSize
@@ -104,6 +113,7 @@ public class AppManagerActivity extends Activity {
         mListView1 = (ListView) view1.findViewById(R.id.app_page1);
         mListView2 = (ListView) view2.findViewById(R.id.app_page2);
         mListView3 = (ListView) view3.findViewById(R.id.app_page3);
+        mToolbarTitleTv = (TextView) findViewById(R.id.toolbar_title_tv);
     }
 
     //适配器
@@ -116,6 +126,7 @@ public class AppManagerActivity extends Activity {
     //初始化数据
     public void initData() {
         mTitle = super.getResources().getStringArray(R.array.app_tab);
+        mToolbarTitleTv.setText(getResources().getStringArray(R.array.home_name)[2]);
         appInfos = new ArrayList<>();
         userAppInfos = new ArrayList<>();
         systemAppInfos = new ArrayList<>();
@@ -139,7 +150,6 @@ public class AppManagerActivity extends Activity {
     }
 
     class UninstallReceiver extends BroadcastReceiver {
-
         @Override
         public void onReceive(Context context, Intent intent) {
             initData();

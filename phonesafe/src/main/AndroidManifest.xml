@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cmp.myapplication">
+    package="com.cmp.phonesafe">
+
+    <meta-data
+        android:name="UMENG_CHANNEL"
+        android:value="${UMENG_CHANNEL_VALUE}" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -9,7 +14,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppBaseTheme">
-        <activity android:name="com.cmp.activity.WelcomeActivity"
+        <activity
+            android:name="com.cmp.activity.WelcomeActivity"
             android:theme="@style/Theme.Start">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,33 +23,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.cmp.activity.RadarActivity">
-
-        </activity>
         <!-- 主页 -->
-        <activity android:name="com.cmp.activity.HomeActivity">
-
-        </activity>
+        <activity android:name="com.cmp.activity.HomeActivity" />
         <!-- 设置手机防盗密码 -->
-        <activity android:name="com.cmp.activity.SetPWActivity">
-
-        </activity>
+        <activity android:name="com.cmp.activity.SetPasswordActivity" />
         <!-- 进入手机防盗 -->
-        <activity android:name="com.cmp.activity.EditPWActivity">
-
-        </activity>
+        <activity android:name="com.cmp.activity.EditPasswordActivity" />
         <!-- 手机防盗 -->
-        <activity android:name="com.cmp.activity.BurglarActivity">
-
-        </activity>
+        <activity android:name="com.cmp.activity.BurglarActivity" />
         <!-- 手机防盗设置 -->
-        <activity android:name="com.cmp.activity.BurglarSettingActivity">
-
-        </activity>
-        <!--软件管理-->
-        <activity android:name="com.cmp.activity.AppManagerActivity">
-
-        </activity>
+        <activity android:name="com.cmp.activity.BurglarSettingActivity" />
+        <!-- 软件管理 -->
+        <activity android:name="com.cmp.activity.AppManagerActivity" />
+        <!--病毒查杀-->
+        <activity android:name="com.cmp.activity.AntivirusActivity" />
     </application>
 
 </manifest>

@@ -5,35 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_h"
-        android:background="@color/background_color">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/back"
-                android:layout_width="@dimen/btn_back_w"
-                android:layout_height="@dimen/btn_back_h"
-                android:layout_centerVertical="true"
-                android:background="@mipmap/btn_back"
-                android:onClick="btn_back" />
-            <!-- 主标题 -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/m_left"
-                android:layout_toRightOf="@+id/back"
-                android:text="@string/activity_app_title"
-                android:textColor="#fff"
-                android:textSize="@dimen/title_size" />
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
+    <include layout="@layout/public_toolbar"/>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/app_tab"
@@ -53,7 +25,7 @@
         android:padding="5dp">
 
         <TextView
-            android:id="@+id/phone_memory"
+            android:id="@+id/app_phone_memory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -61,7 +33,7 @@
             android:text="@string/activity_app_phone_memory" />
 
         <TextView
-            android:id="@+id/card_memory"
+            android:id="@+id/app_card_memory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

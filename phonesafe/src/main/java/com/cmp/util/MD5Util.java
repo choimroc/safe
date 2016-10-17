@@ -6,6 +6,8 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * 作者：cmp on 2016/9/10 16:24
+ *
+ * MD5码转换
  */
 public class MD5Util {
     public static String md5(String string) {

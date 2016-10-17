@@ -5,35 +5,7 @@
     android:orientation="vertical">
 
     <!--自定义标题栏-->
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_h"
-        android:background="@color/background_color">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/back"
-                android:layout_width="@dimen/btn_back_w"
-                android:layout_height="@dimen/btn_back_h"
-                android:layout_centerVertical="true"
-                android:background="@mipmap/btn_back"
-                android:onClick="btn_back" />
-            <!-- 主标题 -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/m_left"
-                android:layout_toRightOf="@+id/back"
-                android:text="@string/activity_editpw_title"
-                android:textColor="#fff"
-                android:textSize="@dimen/title_size" />
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
+    <include layout="@layout/public_toolbar"/>
 
     <TextView
         android:layout_width="match_parent"

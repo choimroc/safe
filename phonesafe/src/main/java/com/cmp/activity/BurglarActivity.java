@@ -7,32 +7,59 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.cmp.adapter.CommonAdapter;
 import com.cmp.adapter.ViewHolder;
 import com.cmp.data.BurglarItem;
-import com.cmp.myapplication.R;
+import com.cmp.phonesafe.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 作者：cmp on 2016/9/9 23:20
+ * <p>
+ * 手机防盗
  */
 public class BurglarActivity extends Activity {
     private List<BurglarItem> dataList;
+    private TextView mToolbarTitleTv;
+    private GridView burglar_gv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_burglar);
-        initData();
         initView();
+        initData();
+
     }
 
     //初始化GridView
     private void initView() {
-        GridView burglar_gv = (GridView) findViewById(R.id.burglar_gv);
+        burglar_gv = (GridView) findViewById(R.id.burglar_gv);
+        mToolbarTitleTv = (TextView) findViewById(R.id.toolbar_title_tv);
+    }
+
+
+    //初始化数据
+    private void initData() {
+        //设置标题
+        mToolbarTitleTv.setText(getResources().getStringArray(R.array.home_name)[0]);
+        dataList = new ArrayList<>();
+        //获取item图标
+        TypedArray getImageId = super.getResources().obtainTypedArray(R.array.burglar_item);
+        int[] imageId = new int[getImageId.length()];
+        for (int j = 0; j < getImageId.length(); j++) {
+            imageId[j] = getImageId.getResourceId(j, 0);
+        }
+        //获取item名称
+        String[] names = getResources().getStringArray(R.array.burglar_name);
+        for (int i = 0; i < getImageId.length(); i++) {
+            dataList.add(new BurglarItem(imageId[i], names[i]));
+        }
+        getImageId.recycle();
         burglar_gv.setAdapter(new CommonAdapter<BurglarItem>(getApplicationContext(),
                 dataList, R.layout.activity_burglar_item) {
             @Override
@@ -44,21 +71,6 @@ public class BurglarActivity extends Activity {
         burglar_gv.setOnItemClickListener(BurglarOnClick);
     }
 
-    //初始化数据
-    private void initData() {
-        dataList = new ArrayList<>();
-        TypedArray getImageId = super.getResources().obtainTypedArray(R.array.burglar_item);
-        int[] imageId = new int[getImageId.length()];
-        for (int j = 0; j < getImageId.length(); j++) {
-            imageId[j] = getImageId.getResourceId(j, 0);
-        }
-        String[] names = super.getResources().getStringArray(R.array.burglar_name);
-        for (int i = 0; i < getImageId.length(); i++) {
-            dataList.add(new BurglarItem(imageId[i], names[i]));
-        }
-        getImageId.recycle();
-    }
-
     //开启新的Activity不关闭自己
     public void startActivity(Class<?> cls) {
         Intent intent = new Intent(BurglarActivity.this, cls);
@@ -66,7 +78,7 @@ public class BurglarActivity extends Activity {
     }
 
     //返回按钮
-    public void btn_back(View v) {
+    public void btnBack(View v) {
         finish();
     }
 
