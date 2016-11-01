@@ -26,8 +26,8 @@ public class AntListViewAdapter extends CommonAdapter<ScanAppInfo> {
     public void convert(ViewHolder holder, ScanAppInfo item) {
         holder.setImageDrawable(R.id.ant_app_icon, item.getAppicon());
         holder.setText(R.id.ant_app_name, item.getAppName());
-        if (!item.isVirus()) {
-            holder.setText(R.id.ant_issafe, context.getResources().getString(R.string.activity_ant_safe));
+        if (item.isVirus()) {
+            holder.setText(R.id.ant_issafe, context.getResources().getString(R.string.activity_ant_danger));
         }else {
             holder.setText(R.id.ant_issafe, context.getResources().getString(R.string.activity_ant_safe));
         }

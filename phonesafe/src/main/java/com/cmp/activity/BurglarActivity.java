@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.cmp.adapter.CommonAdapter;
@@ -22,10 +23,12 @@ import java.util.List;
  * <p>
  * 手机防盗
  */
-public class BurglarActivity extends Activity {
+public class BurglarActivity extends Activity implements View.OnClickListener {
     private List<BurglarItem> dataList;
     private TextView mToolbarTitleTv;
     private GridView burglar_gv;
+    private ImageButton mToolbarSettingBtn;
+    private ImageButton mToolbarBackBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,10 @@ public class BurglarActivity extends Activity {
     private void initView() {
         burglar_gv = (GridView) findViewById(R.id.burglar_gv);
         mToolbarTitleTv = (TextView) findViewById(R.id.toolbar_title_tv);
+        mToolbarSettingBtn = (ImageButton) findViewById(R.id.toolbar_setting_btn);
+        mToolbarSettingBtn.setOnClickListener(this);
+        mToolbarBackBtn = (ImageButton) findViewById(R.id.toolbar_back_btn);
+        mToolbarBackBtn.setOnClickListener(this);
     }
 
 
@@ -77,16 +84,6 @@ public class BurglarActivity extends Activity {
         startActivity(intent);
     }
 
-    //返回按钮
-    public void btnBack(View v) {
-        finish();
-    }
-
-    //进入设置
-    public void btn_setting(View v) {
-        Intent intent = new Intent(BurglarActivity.this, BurglarSettingActivity.class);
-        startActivity(intent);
-    }
 
     private AdapterView.OnItemClickListener BurglarOnClick = new AdapterView.OnItemClickListener() {
         @Override
@@ -110,4 +107,17 @@ public class BurglarActivity extends Activity {
             }
         }
     };
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.toolbar_setting_btn:    //进入设置
+                Intent intent = new Intent(BurglarActivity.this, BurglarSettingActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.toolbar_back_btn:
+                finish();
+                break;
+        }
+    }
 }

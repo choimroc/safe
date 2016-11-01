@@ -11,6 +11,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,7 +31,7 @@ import java.util.List;
  * <p>
  * 软件管家
  */
-public class AppManagerActivity extends Activity {
+public class AppManagerActivity extends Activity implements View.OnClickListener {
     private TabLayout mTabLayout;//选项卡标题布局
     private ViewPager mViewPager;//选项卡内容布局
     private ArrayList<View> mArrayList;//viewpager布局
@@ -68,6 +69,7 @@ public class AppManagerActivity extends Activity {
             }
         }
     };
+    private ImageButton mToolbarBackBtn;
 
 
     @Override
@@ -79,10 +81,6 @@ public class AppManagerActivity extends Activity {
         initAdapter();
     }
 
-    //返回按钮
-    public void btnBack(View v) {
-        finish();
-    }
 
     //初始化组件
     private void initView() {
@@ -114,6 +112,8 @@ public class AppManagerActivity extends Activity {
         mListView2 = (ListView) view2.findViewById(R.id.app_page2);
         mListView3 = (ListView) view3.findViewById(R.id.app_page3);
         mToolbarTitleTv = (TextView) findViewById(R.id.toolbar_title_tv);
+        mToolbarBackBtn = (ImageButton) findViewById(R.id.toolbar_back_btn);
+        mToolbarBackBtn.setOnClickListener(this);
     }
 
     //适配器
@@ -147,6 +147,15 @@ public class AppManagerActivity extends Activity {
                 mHandler.sendEmptyMessage(10);
             }
         }.start();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.toolbar_back_btn:
+                finish();
+                break;
+        }
     }
 
     class UninstallReceiver extends BroadcastReceiver {

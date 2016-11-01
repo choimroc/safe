@@ -127,7 +127,7 @@ public class HomeActivity extends Activity {
                     startActivity(AntivirusActivity.class);
                     break;
                 case 4:
-
+                    startActivity(ClearCacheActivity.class);
                     break;
                 case 5:
 

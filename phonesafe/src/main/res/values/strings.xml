@@ -32,6 +32,17 @@
     <string name="activity_ant_scan_nofinish">查杀未完成！</string>
     <string name="activity_ant_never">您还未扫描过哟!</string>
     <string name="activity_ant_last">上次查杀时间：</string>
+    <!--清理缓存-->
+    <string name="activity_cache_suggest">垃圾</string>
+    <string name="activity_cache_clear">一键清理</string>
+    <string name="activity_cache_finish">清理完成</string>
+    <!--进程管理-->
+    <string name="activity_process_user">用户进程</string>
+    <string name="activity_process_system">系统进程</string>
+    <string name="activity_process_speedup">一键加速</string>
+    <string name="activity_process_all">总进程数</string>
+    <string name="activity_process_already">已用</string>
+
 
 
 </resources>

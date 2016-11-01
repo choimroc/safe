@@ -9,6 +9,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,11 +21,12 @@ import com.cmp.util.MD5Util;
  * <p>
  * 手机防盗输入密码
  */
-public class EditPasswordActivity extends Activity {
+public class EditPasswordActivity extends Activity implements View.OnClickListener {
     private EditText mEdit;
     private Button mBtn;
     private SharedPreferences preferences;
     private TextView mToolbarTitleTv;
+    private ImageButton mToolbarBackBtn;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,8 @@ public class EditPasswordActivity extends Activity {
         //设置标题
         mToolbarTitleTv = (TextView) findViewById(R.id.toolbar_title_tv);
         mToolbarTitleTv.setText(R.string.activity_editpw_title);
+        mToolbarBackBtn = (ImageButton) findViewById(R.id.toolbar_back_btn);
+        mToolbarBackBtn.setOnClickListener(this);
     }
 
     //返回按钮
@@ -91,4 +95,13 @@ public class EditPasswordActivity extends Activity {
             }
         }
     };
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.toolbar_back_btn:
+                finish();
+                break;
+        }
+    }
 }

@@ -26,7 +26,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
      */
     private int mItemLayoutId;
 
-    public CommonAdapter(Context context, List<T> mData, int itemLayoutId) {
+    protected CommonAdapter(Context context, List<T> mData, int itemLayoutId) {
         this.mContext = context;
         this.mInflater = LayoutInflater.from(mContext);
         this.mData = mData;
@@ -50,6 +50,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         final ViewHolder viewHolder = getViewHolder(position, convertView,
                 parent);
         convert(viewHolder, getItem(position));

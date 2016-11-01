@@ -34,6 +34,17 @@
                 android:layout_toRightOf="@+id/toolbar_back_btn"
                 android:textColor="#fff"
                 android:textSize="@dimen/public_title_size" />
+
+            <ImageButton
+                android:id="@+id/toolbar_setting_btn"
+                android:layout_width="@dimen/public_btn_back_w"
+                android:layout_height="@dimen/public_btn_back_w"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/public_setting" />
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 </LinearLayout>

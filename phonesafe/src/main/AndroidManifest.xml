@@ -7,6 +7,8 @@
         android:value="${UMENG_CHANNEL_VALUE}" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
 
     <application
         android:allowBackup="true"
@@ -35,8 +37,12 @@
         <activity android:name="com.cmp.activity.BurglarSettingActivity" />
         <!-- 软件管理 -->
         <activity android:name="com.cmp.activity.AppManagerActivity" />
-        <!--病毒查杀-->
+        <!-- 病毒查杀 -->
         <activity android:name="com.cmp.activity.AntivirusActivity" />
+        <!-- 清理缓存 -->
+        <activity android:name="com.cmp.activity.ClearCacheActivity" />
+        <!-- 进程管理 -->
+        <activity android:name="com.cmp.activity.ProcessManagerActivity"/>
     </application>
 
 </manifest>

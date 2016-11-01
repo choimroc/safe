@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,11 +22,12 @@ import com.cmp.util.MD5Util;
  * <p>
  * 手机防盗设置密码
  */
-public class SetPasswordActivity extends Activity {
+public class SetPasswordActivity extends Activity implements View.OnClickListener {
     private EditText mEdit1;
     private EditText mEdit2;
     private Button mBtn;
     private TextView mToolbarTitleTv;
+    private ImageButton mToolbarBackBtn;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +35,6 @@ public class SetPasswordActivity extends Activity {
         initView();
     }
 
-    //返回按钮
-    //返回按钮
-    public void btnBack(View v) {
-        finish();
-    }
 
     private void initView() {
         mEdit1 = (EditText) findViewById(R.id.editText1);
@@ -46,6 +43,8 @@ public class SetPasswordActivity extends Activity {
         mEdit2.addTextChangedListener(mTextWatcher);
         mToolbarTitleTv = (TextView) findViewById(R.id.toolbar_title_tv);
         mToolbarTitleTv.setText(R.string.activity_setpw_title);
+        mToolbarBackBtn = (ImageButton) findViewById(R.id.toolbar_back_btn);
+        mToolbarBackBtn.setOnClickListener(this);
     }
 
     public void check(View v) {
@@ -95,4 +94,13 @@ public class SetPasswordActivity extends Activity {
             }
         }
     };
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.toolbar_back_btn:
+                finish();
+                break;
+        }
+    }
 }

@@ -55,7 +55,6 @@ public class AntivirusActivity extends Activity implements View.OnClickListener 
     private TextView mProcessTv;//百分比进度
     private List<ScanAppInfo> mScanAppInfos = new ArrayList<>();
     private PackageManager pm;
-    private ImageButton mBack;//返回按钮
     private SharedPreferences preferences;
     private Animation rotateAnim;//旋转动画
 
@@ -98,6 +97,7 @@ public class AntivirusActivity extends Activity implements View.OnClickListener 
     };
     private TextView mToolbarTitleTv;
     private ImageView mAntScanImg;
+    private ImageButton mToolbarBackBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,9 +116,10 @@ public class AntivirusActivity extends Activity implements View.OnClickListener 
         mAntScannerLv = (ListView) findViewById(R.id.ant_scanner_lv);
         mAntStartBtn = (Button) findViewById(R.id.ant_start_btn);
         mProcessTv = (TextView) findViewById(R.id.ant_process_tv);
-        mBack = (ImageButton) findViewById(R.id.back);
         mToolbarTitleTv = (TextView) findViewById(R.id.toolbar_title_tv);
         mAntScanImg = (ImageView) findViewById(R.id.ant_scan_img);
+        mToolbarBackBtn = (ImageButton) findViewById(R.id.toolbar_back_btn);
+        mToolbarBackBtn.setOnClickListener(this);
     }
 
     //初始化数据
@@ -162,7 +163,6 @@ public class AntivirusActivity extends Activity implements View.OnClickListener 
         process = 0;
         mScanAppInfos.clear();
         new Thread() {
-
             public void run() {
                 Message msg = Message.obtain();
                 msg.what = SCAN_BENGIN;
@@ -212,10 +212,7 @@ public class AntivirusActivity extends Activity implements View.OnClickListener 
         }.start();
     }
 
-    //返回按钮
-    public void btnBack(View v) {
-        finish();
-    }
+
 
     //旋转动画
     private void startRotate() {
@@ -250,6 +247,7 @@ public class AntivirusActivity extends Activity implements View.OnClickListener 
                     mAntScannerTv.setText(R.string.activity_ant_scan_nofinish);
                     mProcessTv.setVisibility(View.INVISIBLE);
                     int paddingDP = DensityUtil.dip2px(getApplicationContext(), 30);
+                    //像素转换为dp
                     mAntScanImg.setPadding(paddingDP, paddingDP, paddingDP, paddingDP);
                     flag = false;
                 } else if (isStop) {
@@ -259,6 +257,9 @@ public class AntivirusActivity extends Activity implements View.OnClickListener 
                     //开始扫描
                     scanVirus();
                 }
+                break;
+            case R.id.toolbar_back_btn:    //返回按钮
+                finish();
                 break;
         }
     }

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <!--自定义标题栏-->
-    <include layout="@layout/public_toolbar"/>
+    <include layout="@layout/public_toolbar_setting"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

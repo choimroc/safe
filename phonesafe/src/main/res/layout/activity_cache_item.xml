@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="60dp"
     android:padding="10dp">
 
     <ImageView
-        android:id="@+id/ant_app_icon"
+        android:id="@+id/cache_app_icon"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
@@ -14,18 +14,24 @@
         android:layout_marginRight="15dp" />
 
     <TextView
-        android:id="@+id/ant_app_name"
+        android:id="@+id/cache_app_name"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/ant_app_icon"
+        android:layout_toRightOf="@+id/cache_app_icon"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text=""
         android:textColor="#000" />
 
     <TextView
-        android:id="@+id/ant_issafe"
+        android:id="@+id/cache_cache_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cache_app_name"
+        android:layout_toRightOf="@+id/cache_app_icon"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/cache_issafe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"

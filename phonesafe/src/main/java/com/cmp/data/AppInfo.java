@@ -31,6 +31,12 @@ public class AppInfo {
      */
     private long appSize;
 
+
+    /**
+     * 应用程序的缓存大小
+     */
+    private long appCacheSize;
+
     /**
      * 是否是用户程序  true 用户程序 false 系统程序
      */
@@ -115,6 +121,14 @@ public class AppInfo {
         this.appDate = appDate;
     }
 
+    public long getAppCacheSize() {
+        return appCacheSize;
+    }
+
+    public void setAppCacheSize(long appCacheSize) {
+        this.appCacheSize = appCacheSize;
+    }
+
     public String getAppVersion() {
         return appVersion;
     }
@@ -123,12 +137,12 @@ public class AppInfo {
         this.appVersion = appVersion;
     }
 
-    @Override
-    public String toString() {
-        return "AppInfo [name=" + name + ", inRom=" + inRom + ", appSize="
-                + appSize + ", userApp=" + userApp + ", packageName=" + packageName
-                + "]";
-    }
+//    @Override
+//    public String toString() {
+//        return "AppInfo [name=" + name + ", inRom=" + inRom + ", appSize="
+//                + appSize + ", userApp=" + userApp + ", packageName=" + packageName
+//                + "]";
+//    }
 
 }
 
